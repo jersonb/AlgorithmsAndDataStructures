@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-var size = 20;
+var size = 100_000;
 
 var random = new Random();
 var array = new int[size];
@@ -12,7 +12,6 @@ for (int i = 0; i < array.Length; i++)
 
 ulong iterations = 0;
 var stopWatch = new Stopwatch();
-Console.WriteLine(string.Join(", ", array));
 stopWatch.Start();
 
 
@@ -49,12 +48,11 @@ void Merge(int low, int mid, int high)
             array[k] = aux[j++];
         else
             array[k] = aux[i++];
-            
+
         iterations++;
     }
 }
 
 stopWatch.Stop();
-Console.WriteLine(string.Join(", ", array));
 
 Console.WriteLine($"{iterations} iterations: { stopWatch.ElapsedMilliseconds}ms");
