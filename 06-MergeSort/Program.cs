@@ -12,6 +12,8 @@ for (int i = 0; i < array.Length; i++)
 
 ulong iterations = 0;
 var stopWatch = new Stopwatch();
+//Console.WriteLine(string.Join(", ",array));
+
 stopWatch.Start();
 
 
@@ -27,6 +29,8 @@ void Sort(int low, int high)
     Sort(low, mid);
     Sort(mid + 1, high);
     Merge(low, mid, high);
+
+    iterations++;
 }
 
 void Merge(int low, int mid, int high)
@@ -49,10 +53,9 @@ void Merge(int low, int mid, int high)
         else
             array[k] = aux[i++];
 
-        iterations++;
     }
 }
 
 stopWatch.Stop();
-
+//Console.WriteLine(string.Join(", ",array));
 Console.WriteLine($"{iterations} iterations: { stopWatch.ElapsedMilliseconds}ms");

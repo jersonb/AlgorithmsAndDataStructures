@@ -12,6 +12,7 @@ for (int i = 0; i < array.Length; i++)
 
 ulong iterations = 0;
 var stopWatch = new Stopwatch();
+//Console.WriteLine(string.Join(", ",array));
 stopWatch.Start();
 
 int gap = 1;
@@ -35,5 +36,6 @@ while (gap >= 1)
 }
 
 stopWatch.Stop();
+//Console.WriteLine(string.Join(", ",array));
 
 Console.WriteLine($"{iterations} iterations: { stopWatch.ElapsedMilliseconds}ms");
